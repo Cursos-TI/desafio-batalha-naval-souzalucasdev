@@ -16,13 +16,60 @@ int main() {
     int navioV[3] = {5, 6, 7}; //navioVertical;
     int navioD1 = 4; //navioDiagonal1;
     int navioD2 = 6; //navioDiagonal2;
+    int ataqueCone[3][5];
+    int ataqueCruz[5][5];
+    int ataqueOctaedro[5][5];
+    int nLinhasCone = 3;
+    int nColunasCone;
+    int inicio;
+    int indexColunaDoMeio;
 
-    //ATRIBUINDO 0 PARA TODOS OS ELEMENTOS DA MATRIZ;
+    //ATRIBUINDO 0 PARA TODOS OS ELEMENTOS DO TABULEIRO;
     for(int i = 0; i<10; i++){
         for (int j=0; j<10; j++){
             tabuleiro[i][j] = 0;
         }
     }
+
+    //ATRIBUINDO VALORES PARA O ATAQUE CONE;
+    for(int i = 0; i < 3; i++){
+        for (int j = 0; j < 5; j++){
+            ataqueCone[i][j] = 0;
+        }
+    }
+
+    //Atribuindo valor 5 nas casas do ataque cone
+        for(int k = 0; k < nLinhasCone; k++){
+            indexColunaDoMeio = nLinhasCone % 2 + 1;
+            for(int l = 0; l < 5; l++){
+                if(k == 0){
+                    if(l == indexColunaDoMeio){
+                        printf("%d ", ataqueCone[k][l] = 5);
+                    } else {
+                        printf("%d ", ataqueCone[k][l] = 0);
+                    }
+                } else if(k == 1) {
+                    if(l == indexColunaDoMeio || (l == indexColunaDoMeio + 1) || (l == indexColunaDoMeio - 1)){
+                        printf("%d ", ataqueCone[k][l] = 5);
+                    } else {
+                        printf("%d ", ataqueCone[k][l] = 0);
+                    }
+                } else {
+                    printf("%d ", ataqueCone[k][l] = 5);
+                }
+            }
+            printf(" \n");
+    }
+
+
+
+    //         if (inicio = nColunasCone % 2) {
+    //         ataqueCone[i][inicio-1] = 5;
+    //     }
+    // printf("%d \n", ataqueCone[nLinhasCone][nColunasCone]);
+
+
+
 
     //COLOCANDO OS NAVIOS NAS POSICOES
         //navio horizontal:
