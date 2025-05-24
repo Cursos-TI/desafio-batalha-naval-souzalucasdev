@@ -12,8 +12,10 @@ int main() {
 
     //inicializando tabuleiro e os navios (hardcoded)
     int tabuleiro[10][10];
-    int navioH[3] = {2, 3, 4}; 
-    int navioV[3] = {5, 6, 7};
+    int navioH[3] = {2, 3, 4}; //navioHorizontal;
+    int navioV[3] = {5, 6, 7}; //navioVertical;
+    int navioD1 = 4; //navioDiagonal1;
+    int navioD2 = 6; //navioDiagonal2;
 
     //ATRIBUINDO 0 PARA TODOS OS ELEMENTOS DA MATRIZ;
     for(int i = 0; i<10; i++){
@@ -31,6 +33,37 @@ int main() {
     for(int k = 0; k<3; k++){
         tabuleiro[navioH[k]][8] = 3;
     }
+        //navio diagonal 1:
+        for(int k = 0; k<3; k++){
+        if(navioD1+k <= 9) {
+            if (tabuleiro[navioD1+k][2+k] == 0){
+            tabuleiro[navioD1+k][2+k] = 3;
+            } else {
+                printf("As casas escolhidas ja estao ocupadas! Mostrando apenas navios posicionados corretamente:  \n");
+            break;
+            }
+        } else {
+            printf("O navioD1 esta fora do tabuleiro! Mostrando apenas navios posicionados corretamente:  \n");
+            break;
+        }
+    }
+
+        //navio diagonal 2:
+        for(int k = 0; k<3; k++){
+        if(navioD2+k <= 9) {
+            if (tabuleiro[navioD2+k][2+k] == 0){
+            tabuleiro[navioD2+k][2+k] = 3;
+            } else {
+                printf("As casas escolhidas ja estao ocupadas! Mostrando apenas navios posicionados corretamente:  \n");
+            break;
+            }
+        } else {
+            printf("O navioD2 esta fora do tabuleiro! Mostrando apenas navios posicionados corretamente:  \n");
+            break;
+        }
+    }
+
+
 
 //CRIANDO TABULEIRO
 printf("   A B C D E F G H I J \n");
